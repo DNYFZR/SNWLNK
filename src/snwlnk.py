@@ -32,15 +32,15 @@ def App(profile: dict = configureApp(), profile_pic: str = "config/profile.jpg")
     # Person Info
     st.header(f'''{profile['name']}''')
 
-    if "info" in profile.keys():
+    if "bio" in profile.keys():
         with st.container():
             st.markdown(
-                f'''<p style="font-size:100%;" align="center"><b>{profile['info']}</b></p>''', 
+                f'''<p style="font-size:100%;" align="center"><b>{profile['bio']}</b></p>''', 
                 unsafe_allow_html=True)
             
     # Links
     for key in profile.keys():
-        if key not in ['name', 'info']:
+        if key not in ['name', 'bio']:
             st_button(label=key, url=profile[key])
 
     # Footnotes
