@@ -1,14 +1,16 @@
 import re, PIL, streamlit as st
 from utils.tools import st_button, load_css
 
-def app():
-    # Load CSS style
-    load_css(path="css/style.css")
 
-    # Celebrate   
-    st.snow()
+def LoadCSS(path: str ="css/style.css"):
+    load_css(path)
 
-    # Bring in data from profiles.yml
+def Celebrate(active: bool = True):
+    if active:
+        st.snow()
+
+@st.cache
+def configureApp():
     with open("config/profile.yml", "rb") as profiles:
         # Read in, decode & remove chars 
         profiles = profiles.read().decode()
@@ -17,27 +19,32 @@ def app():
         # Extract key-val pairs
         profiles = {i.split(':', maxsplit=1)[0] : i.split(':', maxsplit=1)[1].strip() for i in profiles if re.findall(':', i)}
 
+    return profiles
+
+def App(profile: dict = configureApp(), profile_pic: str = "config/profile.jpg"):
     # App logo
     st.markdown(f'''**❄ SNWLNK ❄**''')
 
     # App page
-    col1, col2, col3 = st.columns(3)
-    col2.image(PIL.Image.open("config/profile.jpg"))
+    _, col2, _ = st.columns(3)
+    col2.image(PIL.Image.open(profile_pic))
 
     # Person Info
-    st.header(f'''{profiles['name']}''')
+    st.header(f'''{profile['name']}''')
 
-    if "info" in profiles.keys():
+    if "info" in profile.keys():
         with st.container():
-            st.markdown(f'''<p align="center"><b>{profiles['info']}</b></p>''', unsafe_allow_html=True)
+            st.markdown(
+                f'''<p style="font-size:100%;" align="center"><b>{profile['info']}</b></p>''', 
+                unsafe_allow_html=True)
             
     # Links
-    for key in profiles.keys():
+    for key in profile.keys():
         if key not in ['name', 'info']:
-            print(key, profiles[key])
-            st_button(label=key, url=profiles[key])
+            st_button(label=key, url=profile[key])
 
+    # Footnotes
     st.markdown('---')
-
-if __name__ == "__main__":
-    app()
+    st.markdown(
+        f'''<p style="font-size:75%;" align="right"><b>SNWLNK by DNYFZR</b></p><br/>''', 
+        unsafe_allow_html=True)
