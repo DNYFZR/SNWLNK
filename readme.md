@@ -10,7 +10,7 @@ This app allows you to easily configure the displayed content by using a YAML in
 
 Once configured, you will have something like this...
 
-<p align="center"><img src = "utils/snwlnk_demo.png" height=500></p>
+<p align="center"><img src = "utils/images/snwlnk_demo.png" height=500></p>
 
 ---
 
