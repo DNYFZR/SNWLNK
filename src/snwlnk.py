@@ -2,7 +2,7 @@ import re, PIL, streamlit as st
 from utils.tools import st_button, load_css
 
 
-def LoadCSS(path: str ="css/style.css"):
+def LoadCSS(path: str):
     load_css(path)
 
 def Celebrate(active: bool = True):
@@ -10,10 +10,12 @@ def Celebrate(active: bool = True):
         st.snow()
 
 @st.cache
-def configureApp():
-    with open("config/profile.yml", "rb") as profiles:
-        # Read in, decode & remove chars 
+def configureApp(sourcefile: str):
+    with open(sourcefile, "rb") as profiles:
+        # Read in bytes object  
         profiles = profiles.read().decode()
+        
+        # Decode & clean / remove chars
         profiles = profiles.replace('"', '').replace('\r', '').split('\n')
         
         # Extract key-val pairs
@@ -21,13 +23,13 @@ def configureApp():
 
     return profiles
 
-def App(profile: dict = configureApp(), profile_pic: str = "config/profile.jpg"):
-    # App logo
-    st.markdown(f'''**❄ SNWLNK ❄**''')
-
-    # App page
-    _, col2, _ = st.columns(3)
-    col2.image(PIL.Image.open(profile_pic))
+def Run(profile: dict, profile_pic: str = None):
+    
+    # App Pic
+    if profile_pic == None:
+        st.image(PIL.Image.open("utils/images/default.jfif"), width=200)
+    else:
+        st.image(PIL.Image.open(profile_pic), width=200)
 
     # Person Info
     st.header(f'''{profile['name']}''')
@@ -46,5 +48,5 @@ def App(profile: dict = configureApp(), profile_pic: str = "config/profile.jpg")
     # Footnotes
     st.markdown('---')
     st.markdown(
-        f'''<p style="font-size:75%;" align="right"><b>SNWLNK by DNYFZR</b></p><br/>''', 
+        f'''<p style="font-size:75%;" align="right"><b>❄ SNWLNK by DNYFZR</b></p><br/>''', 
         unsafe_allow_html=True)
