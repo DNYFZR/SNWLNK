@@ -1,6 +1,6 @@
 import re, PIL, sys, streamlit as st
 sys.path.append('../')
-from utils.tools import st_button, load_css
+from ..utils.tools import st_button, load_css
 
 # Load CSS style
 load_css(path="../css/style.css")
