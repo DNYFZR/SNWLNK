@@ -48,5 +48,5 @@ def Run(profile: dict, profile_pic: str = None):
     # Footnotes
     st.markdown('---')
     st.markdown(
-        f'''<p href=github.com/DNYFZR style="font-size:75%;" align="right"><b>❄ SNWLNK by DNYFZR</b></p><br/>''', 
+        f'''<p href="github.com/DNYFZR" style="font-size:75%;" align="right"><b>❄ SNWLNK by DNYFZR</b></p><br/>''', 
         unsafe_allow_html=True)
