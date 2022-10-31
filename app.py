@@ -4,9 +4,9 @@ import src.snwlnk as app
 if __name__ == "__main__":
     # Configure
     app.LoadCSS(path="css/style.css")
-    app.Celebrate(active=True)
+    app.Celebrate(active=False)
     
     # Run
-    app.App(
-        profile = app.configureApp(),
+    app.Run(
+        profile = app.configureApp(sourcefile = "config/profile.yml"), 
         profile_pic = "config/profile.jpg")
