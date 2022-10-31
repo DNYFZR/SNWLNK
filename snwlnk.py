@@ -4,10 +4,8 @@ from utils.tools import st_button, load_css
 # Load CSS style
 load_css(path="css/style.css")
 
-# Celebrate
-for _ in range(2):
-    time.sleep(1)   
-    st.snow()
+# Celebrate   
+st.snow()
 
 
 # Bring in data from profiles.yml
