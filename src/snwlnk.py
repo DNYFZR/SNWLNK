@@ -9,7 +9,6 @@ def Celebrate(active: bool = True):
     if active:
         st.snow()
 
-@st.cache
 def configureApp(sourcefile: str):
     with open(sourcefile, "rb") as profiles:
         # Read in bytes object  
