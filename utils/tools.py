@@ -11,18 +11,19 @@ def st_button(label, url):
     if url == None:
         button_code = f'''
     <p>
-        <a class="btn btn-outline-primary btn-lg btn-block" type="button" aria-pressed="false">{label}</a>
+        <a class="btn btn-outline-primary btn-lg btn-block" type="button" aria-pressed="false"><b>{label}</b></a>
     </p>'''
     
     else:
         button_code = f'''
         <p>
-            <a 
+           <a 
                 href={url} 
                 class="btn btn-outline-primary btn-lg btn-block" 
                 type="button" 
+                width=50%
                 aria-pressed="true">
-                {label}
+                <b>{label}</b>
             </a></p>'''
     
     return st.markdown(button_code, unsafe_allow_html=True)
