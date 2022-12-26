@@ -36,7 +36,7 @@ def Run(profile: dict, profile_pic: str = None):
     if "bio" in profile.keys():
         with st.container():
             st.markdown(
-                f'''<p style="font-size:100%;" align="center"><b>{profile['bio']}</b></p>''', 
+                f'''<p style="font-size:120%;" align="center"><b>{profile['bio']}</b></p>''', 
                 unsafe_allow_html=True)
             
     # Links
