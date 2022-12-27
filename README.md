@@ -1,24 +1,21 @@
 <h2 align="center"><b> ❄ SNWLNK ❄ </b></h2>
 
----
+<p align="center">
+    A social & professional link app to share links to all of your profiles / portfolios / projects.
+</p>
 
-Just a bit of mini project fun - I've put together a link tree type app, using Python, CSS & Streamlit.
-
-This app allows you to easily configure the displayed content by using a YAML input file for the majority of the user input.
-
-Once configured, you will have something like this...
-
-<p align="center"><img src = "app/images/snwlnk_demo.png" height=500></p>
-
-<br>
+<p align="center"><img src = "app/images/snwlnk_demo.png" height=350></p>
 
 ---
 
-To configure SNWLNK, edit the files in the config directory.
+<h4><b> App Configuration</b></h4>
 
-The first is a YAML file which has two sections:
+The app is configured by updating a [YAML file](config/profile.yml) and loading your profile picture to the [config](config/) directory.
 
-1. Header Info - Provide your preferred display name, and a small bio.
+1. Fork the repo to your GitHub account
+
+2. Edit the YAML file and add your profile picture to the config directory.
+   - Header Info - Provide your preferred display name, and a small bio.
 
     ````yml
     # Header info
@@ -26,7 +23,7 @@ The first is a YAML file which has two sections:
     bio: "Software Developer"
     ````
 
-2. Links - Use the desired display name for each link as the key, and the link itself as the value
+   - Links - Use the desired display name for each link as the key, and the link itself as the value
 
     ````yml
     # Links
@@ -34,9 +31,17 @@ The first is a YAML file which has two sections:
     Twitter: "https://twitter.com/@DNYFZR"
     ````
 
-The second is a picture (JPG / PNG etc) - this will be displayed at the top of your SNWLNK.
+3. Upload to [Streamlit Cloud](https://share.streamlit.io/)
+     - Log in with your GitHub account
+     - Select New App and select the repo and main.py file
+     - On Advanced Settings - select Python 3.10 (optional)
+     - Click Deploy!
 
-<br>
+    Once uploaded to the cloud service, the app will be available to view.
 
----
----
+4. Rename the app (optional but advised)
+   - On the [your apps](https://share.streamlit.io/) page, click the three dots next to your SNWLNK app
+   - Select settings, and on the pop-up, rename the app (dealers choice)
+   - Click save, now you will have a custom Streamlit URL for the app.
+
+5. Share that link...
